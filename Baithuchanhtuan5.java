@@ -11,7 +11,7 @@ class Sach {
 }
 
 // Chuong trinh chinh
-public class Main {
+public class Baithuchanhtuan5 {
 
     static Scanner sc = new Scanner(System.in);
 
