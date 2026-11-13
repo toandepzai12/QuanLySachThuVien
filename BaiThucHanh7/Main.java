@@ -1,4 +1,5 @@
 package BaiThucHanh7;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -6,22 +7,19 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         
-        // Yêu cầu 4: Quản lý danh sách sách bằng ArrayList
-        ArrayList<String> danhSachSach = new ArrayList<>(); // Hoặc ArrayList<Sach> nếu quản lý đối tượng sách
+        // Quản lý danh sách đối tượng Sach bằng ArrayList
+        ArrayList<Sach> danhSachSach = new ArrayList<>();
 
-        // Yêu cầu 3: Xây dựng lớp Test để tạo đối tượng từ lớp Sach
-        System.out.println("=== TẠO VÀ HIỂN THỊ ĐỐI TƯỢNG SÁCH ===");
-        Sach sach1 = new Sach("B01", "Lập trình Java căn bản", "Nguyễn Văn A", 2023, 15);
+        System.out.println("=== KIỂM TRA ĐỐI TƯỢNG SÁCH VÀ ENCAPSULATION ===");
+        
+        // Tạo đối tượng sách (có kiểm tra ràng buộc năm xuất bản và số lượng nhờ Setter)
+        Sach sach1 = new Sach("B01", "Lập trình Java nâng cao", "Nguyễn Văn A", 2024, 12);
         sach1.hienThiThongTin();
 
-        Sach sach2 = new Sach("B02", "Cơ sở dữ liệu", "Trần Văn B", 2022, 8);
-        sach2.hienThiThongTin();
+        // Thêm vào danh sách
+        danhSachSach.add(sach1);
 
-        // Thêm thông tin vào ArrayList để quản lý danh sách sách
-        danhSachSach.add(sach1.getTieuDe());
-        danhSachSach.add(sach2.getTieuDe());
-
-        // Cho phép nhập thêm sách mới từ bàn phím vào danh sách
+        // Nhập thêm sách từ bàn phím
         System.out.print("\nNhập số lượng sách muốn thêm vào danh sách: ");
         int n = scanner.nextInt();
         scanner.nextLine(); // Đọc bỏ dòng trống
@@ -44,13 +42,14 @@ public class Main {
             System.out.println("\n--> Thông tin sách vừa nhập:");
             sachMoi.hienThiThongTin();
             
-            danhSachSach.add(sachMoi.getTieuDe());
+            danhSachSach.add(sachMoi);
         }
 
-        // Hiển thị toàn bộ tiêu đề sách trong ArrayList
-        System.out.println("\n=== DANH SÁCH CÁC TIÊU ĐỀ SÁCH TRONG KHO ===");
+        // Hiển thị toàn bộ danh sách sách trong kho
+        System.out.println("\n=== TOÀN BỘ DANH SÁCH SÁCH TRONG THƯ VIỆN ===");
         for (int i = 0; i < danhSachSach.size(); i++) {
-            System.out.println((i + 1) + ". " + danhSachSach.get(i));
+            System.out.println("Cuốn sách thứ " + (i + 1) + ":");
+            danhSachSach.get(i).hienThiThongTin();
         }
 
         scanner.close();
