@@ -5,6 +5,13 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "type": "java",
+            "name": "Main",
+            "request": "launch",
+            "mainClass": "BaiThucHanhTuan9.Main",
+            "projectName": "javalambai_7fba58cc"
+        },
+        {
             "type": "msedge",
             "request": "launch",
             "name": "Open DinhToanCSS-bai6.html",
